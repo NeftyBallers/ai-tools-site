@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Business Tools - Transform Your Workflow</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #667eea;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 140px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 16px 32px;
+            border: 2px solid white;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: #f8fafc;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+        
+        .feature-card p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+        
+        /* AI Tools Section */
+        .ai-tools {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 60px;
+        }
+        
+        .tool-card {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .tool-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .tool-card:hover .tool-avatar {
+            background: white;
+            color: #667eea;
+        }
+        
+        .tool-card h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tool-card .role {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+        
+        .tool-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: #f8fafc;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 60px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            color: #64748b;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .author-info h5 {
+            font-weight: 600;
+            color: #1a202c;
+        }
+        
+        .author-info span {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+        
+        /* CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .final-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: white;
+            padding: 50px 0 30px;
+            border-top: 1px solid rgba(96, 165, 250, 0.1);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #60a5fa;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #60a5fa;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(96, 165, 250, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: #94a3b8;
+        }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tools-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .feature-card, .tool-card, .testimonial-card {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        /* Floating elements */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: -5%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">AITools Pro</div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#tools">AI Tools</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#" class="cta-button">Start Free Trial</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transform Your Business with AI</h1>
+                <p>Supercharge your productivity with our suite of AI-powered tools designed specifically for modern businesses. Automate tasks, boost efficiency, and focus on what matters most.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn-primary">Get Started Free</a>
+                    <a href="#" class="btn-secondary">Watch Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Our AI Tools?</h2>
+                <p>Experience the power of artificial intelligence tailored for business success. Our tools are designed to save time, reduce costs, and amplify your team's capabilities.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Boost Productivity</h3>
+                    <p>Automate repetitive tasks and streamline workflows. Our AI tools can handle everything from email responses to content creation, giving you back hours each day.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>Smart Automation</h3>
+                    <p>Intelligent automation that learns from your business patterns and adapts to your specific needs. No more one-size-fits-all solutions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Data-Driven Insights</h3>
+                    <p>Transform raw data into actionable insights with our AI analytics tools. Make informed decisions based on real-time business intelligence.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Enterprise Security</h3>
+                    <p>Bank-level security with end-to-end encryption. Your business data stays private and secure while you enjoy the benefits of AI.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Easy Integration</h3>
+                    <p>Seamlessly integrate with your existing tools and workflows. No technical expertise required - just plug and play.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Get results in seconds, not hours. Our optimized AI algorithms deliver fast, accurate results when you need them most.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Tools Section -->
+    <section class="ai-tools" id="tools">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet Your AI Team</h2>
+                <p>Each AI assistant is specialized for specific business functions, ready to work 24/7 to help your business thrive.</p>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-avatar">A</div>
+                    <h4>Alex</h4>
+                    <div class="role">Personal Assistant</div>
+                    <p>Manages your calendar, schedules meetings, handles emails, and keeps you organized throughout your busy day.</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-avatar">S</div>
+                    <h4>Sarah</h4>
+                    <div class="role">Content Creator</div>
+                    <p>Generates engaging blog posts, social media content, marketing copy, and creative materials for your brand.</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-avatar">M</div>
+                    <h4>Marcus</h4>
+                    <div class="role">Sales Manager</div>
+                    <p>Crafts compelling sales emails, creates pitch decks, analyzes sales data, and helps close more deals.</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-avatar">L</div>
+                    <h4>Luna</h4>
+                    <div class="role">Customer Support</div>
+                    <p>Responds to customer inquiries, creates help documentation, and ensures excellent customer experiences.</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-avatar">D</div>
+                    <h4>David</h4>
+                    <div class="role">Data Analyst</div>
+                    <p>Analyzes business metrics, creates reports, forecasts trends, and provides actionable insights for growth.</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-avatar">R</div>
+                    <h4>Ruby</h4>
+                    <div class="role">HR Specialist</div>
+                    <p>Streamlines recruitment, creates job descriptions, manages onboarding, and optimizes HR processes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>15+</h3>
+                    <p>Hours Saved Per Week</p>
+                </div>
+                <div class="stat-item">
+                    <h3>300%</h3>
+                    <p>Productivity Increase</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10K+</h3>
+                    <p>Happy Businesses</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>AI Support Available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Customers Say</h2>
+                <p>See how businesses are transforming their operations with our AI tools.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"These AI tools have completely revolutionized how we handle daily operations. We've saved 20 hours per week and our team can focus on strategic initiatives instead of repetitive tasks."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">J</div>
+                        <div class="author-info">
+                            <h5>Jennifer Chen</h5>
+                            <span>CEO, TechStart Inc.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The customer support AI has been a game-changer. Our response times improved by 80% and customer satisfaction scores are at an all-time high. Incredible value for the investment."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h5>Michael Rodriguez</h5>
+                            <span>Operations Manager, RetailPro</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"As a small business owner, I needed efficient solutions that didn't break the bank. These AI assistants handle marketing, sales, and admin tasks brilliantly. Best ROI we've ever had."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">E</div>
+                        <div class="author-info">
+                            <h5>Emily Watson</h5>
+                            <span>Founder, Creative Studio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Join thousands of businesses already saving time and money with our AI tools.</p>
+            <a href="#" class="btn-primary">Start Your Free Trial Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#">AI Tools</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AITools Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(15, 20, 25, 0.98)';
+            } else {
+                header.style.background = 'rgba(15, 20, 25, 0.95)';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.feature-card, .tool-card, .testimonial-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.8s ease';
+            observer.observe(card);
+        });
+
+        // Counter animation for stats
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + (element.textContent.includes('+') ? '+' : '') + 
+                                         (element.textContent.includes('%') ? '%' : '');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + (element.textContent.includes('+') ? '+' : '') + 
+                                         (element.textContent.includes('%') ? '%' : '');
+                }
+            }, 50);
+        }
+
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-item h3');
+                    statNumbers.forEach(stat => {
+                        const text = stat.textContent;
+                        const number = parseInt(text.replace(/[^0-9]/g, ''));
+                        if (number) {
+                            stat.textContent = '0' + text.replace(/[0-9]/g, '');
+                            animateCounter(stat, number);
+                        }
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Mobile menu toggle (if you want to add a mobile menu later)
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('mobile-open');
+        }
+
+        // Add some interactive hover effects
+        document.querySelectorAll('.tool-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // CTA button click tracking (you can integrate with your analytics)
+        document.querySelectorAll('.cta-button, .btn-primary').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Add your analytics tracking here
+                console.log('CTA clicked:', this.textContent);
+                // Redirect to your signup/trial page
+                // window.location.href = 'your-signup-url';
+            });
+        });
+    </script>
+</body>
+</html>
