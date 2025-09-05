@@ -450,6 +450,216 @@
             background: rgba(96, 165, 250, 0.1);
         }
         
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background: #0f1419;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 60px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .pricing-card {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(96, 165, 250, 0.1);
+            position: relative;
+        }
+        
+        .pricing-card.featured {
+            border: 2px solid #60a5fa;
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(96, 165, 250, 0.2);
+        }
+        
+        .pricing-card.coming-soon {
+            opacity: 0.7;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+        }
+        
+        .pricing-card:hover:not(.coming-soon) {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(96, 165, 250, 0.2);
+            border-color: rgba(96, 165, 250, 0.3);
+        }
+        
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+        
+        .plan-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            color: white;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .coming-soon-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #64748b 0%, #94a3b8 100%);
+            color: white;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .plan-price {
+            margin-bottom: 1.5rem;
+        }
+        
+        .price-amount {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #60a5fa;
+            line-height: 1;
+        }
+        
+        .price-period {
+            font-size: 1rem;
+            color: #94a3b8;
+            margin-left: 0.5rem;
+        }
+        
+        .price-comparison {
+            font-size: 0.9rem;
+            color: #10b981;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .plan-description {
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .plan-features li {
+            padding: 0.5rem 0;
+            color: #94a3b8;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .plan-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #60a5fa;
+            font-weight: bold;
+        }
+        
+        .plan-features li.unavailable {
+            color: #64748b;
+            text-decoration: line-through;
+        }
+        
+        .plan-features li.unavailable::before {
+            content: '✗';
+            color: #64748b;
+        }
+        
+        .plan-button {
+            width: 100%;
+            padding: 14px 24px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .plan-button.primary {
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(96, 165, 250, 0.3);
+        }
+        
+        .plan-button.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(96, 165, 250, 0.4);
+        }
+        
+        .plan-button.secondary {
+            background: transparent;
+            color: #60a5fa;
+            border: 2px solid #60a5fa;
+        }
+        
+        .plan-button.secondary:hover {
+            background: #60a5fa;
+            color: white;
+        }
+        
+        .plan-button.disabled {
+            background: #374151;
+            color: #9ca3af;
+            border: 2px solid #374151;
+            cursor: not-allowed;
+        }
+        
+        .plan-button.disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .pricing-note {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-radius: 10px;
+            border: 1px solid rgba(96, 165, 250, 0.1);
+        }
+        
+        .pricing-note h4 {
+            color: #60a5fa;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .pricing-note p {
+            color: #94a3b8;
+            margin: 0;
+        }
+        
         /* Stats Section */
         .stats {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -635,6 +845,14 @@
                 align-items: center;
             }
             
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-card.featured {
+                transform: none;
+            }
+            
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -652,7 +870,7 @@
             }
         }
         
-        .feature-card, .tool-card, .testimonial-card {
+        .feature-card, .tool-card, .testimonial-card, .pricing-card {
             animation: fadeInUp 0.8s ease forwards;
         }
         
@@ -815,6 +1033,95 @@
         </div>
     </section>
 
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>Start your AI transformation with Jasmin today. No hidden fees, no long-term contracts. Cancel anytime.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card featured">
+                    <div class="plan-badge">Most Popular</div>
+                    <h3 class="plan-name">Jasmin Personal Assistant</h3>
+                    <div class="plan-price">
+                        <span class="price-amount">$19</span>
+                        <span class="price-period">/month</span>
+                        <div class="price-comparison">50% less than competitors</div>
+                    </div>
+                    <p class="plan-description">
+                        Get full access to Jasmin, your AI Personal Assistant, with all features included. Perfect for individuals and small businesses.
+                    </p>
+                    <ul class="plan-features">
+                        <li>Full access to Jasmin AI Assistant</li>
+                        <li>Cost comparison calculator</li>
+                        <li>Business tools integration</li>
+                        <li>AI automation rules</li>
+                        <li>Task generation & prioritization</li>
+                        <li>Strategic analysis & insights</li>
+                        <li>24/7 availability</li>
+                        <li>Email support</li>
+                        <li>14-day free trial</li>
+                    </ul>
+                    <a href="https://ai-secretary-demo.vercel.app/" target="_blank" class="plan-button primary">Start Free Trial</a>
+                </div>
+                
+                <div class="pricing-card coming-soon">
+                    <div class="coming-soon-badge">Coming Soon</div>
+                    <h3 class="plan-name">Multi-Tool Bundle</h3>
+                    <div class="plan-price">
+                        <span class="price-amount">$49</span>
+                        <span class="price-period">/month</span>
+                        <div class="price-comparison">50% off individual pricing</div>
+                    </div>
+                    <p class="plan-description">
+                        Access to all AI assistants including Jasmin plus future tools for sales, marketing, customer support, and data analysis.
+                    </p>
+                    <ul class="plan-features">
+                        <li>Everything in Jasmin plan</li>
+                        <li>Sales AI Assistant (coming soon)</li>
+                        <li>Marketing AI Assistant (coming soon)</li>
+                        <li>Customer Support AI (coming soon)</li>
+                        <li>Data Analysis AI (coming soon)</li>
+                        <li>Priority support</li>
+                        <li>Advanced integrations</li>
+                        <li>Custom automation workflows</li>
+                        <li>Early access to new tools</li>
+                    </ul>
+                    <a href="#" class="plan-button disabled">Join Waitlist</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 class="plan-name">Enterprise</h3>
+                    <div class="plan-price">
+                        <span class="price-amount">Custom</span>
+                        <span class="price-period">pricing</span>
+                    </div>
+                    <p class="plan-description">
+                        Tailored AI solutions for large organizations with custom requirements, dedicated support, and enterprise-grade security.
+                    </p>
+                    <ul class="plan-features">
+                        <li>Everything in Multi-Tool Bundle</li>
+                        <li>Custom AI development</li>
+                        <li>White-label options</li>
+                        <li>Dedicated account manager</li>
+                        <li>On-premise deployment options</li>
+                        <li>Advanced security & compliance</li>
+                        <li>Custom integrations</li>
+                        <li>Training & onboarding</li>
+                        <li>SLA guarantees</li>
+                    </ul>
+                    <a href="#" class="plan-button secondary">Contact Sales</a>
+                </div>
+            </div>
+            
+            <div class="pricing-note">
+                <h4>Loyalty Discount Program</h4>
+                <p>Current Jasmin subscribers get 50% off all future AI tools when they launch. Lock in your discount by starting your free trial today!</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Stats Section -->
     <section class="stats">
         <div class="container">
@@ -859,3 +1166,199 @@
                 </div>
                 <div class="testimonial-card">
                     <p>"The customer support AI has been a game-changer. Our response times improved by 80% and customer satisfaction scores are at an all-time high. Incredible value for the investment."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h5>Michael Rodriguez</h5>
+                            <span>Operations Manager, RetailPro</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"As a small business owner, I needed efficient solutions that didn't break the bank. These AI assistants handle marketing, sales, and admin tasks brilliantly. Best ROI we've ever had."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">E</div>
+                        <div class="author-info">
+                            <h5>Emily Watson</h5>
+                            <span>Founder, Creative Studio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Join thousands of businesses already saving time and money with our AI tools.</p>
+            <a href="#" class="btn-primary">Start Your Free Trial Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#">AI Tools</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AITools Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(15, 20, 25, 0.98)';
+            } else {
+                header.style.background = 'rgba(15, 20, 25, 0.95)';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.feature-card, .tool-card, .testimonial-card, .pricing-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.8s ease';
+            observer.observe(card);
+        });
+
+        // Counter animation for stats
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + (element.textContent.includes('+') ? '+' : '') + 
+                                         (element.textContent.includes('%') ? '%' : '');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + (element.textContent.includes('+') ? '+' : '') + 
+                                         (element.textContent.includes('%') ? '%' : '');
+                }
+            }, 50);
+        }
+
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-item h3');
+                    statNumbers.forEach(stat => {
+                        const text = stat.textContent;
+                        const number = parseInt(text.replace(/[^0-9]/g, ''));
+                        if (number) {
+                            stat.textContent = '0' + text.replace(/[0-9]/g, '');
+                            animateCounter(stat, number);
+                        }
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Mobile menu toggle (if you want to add a mobile menu later)
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('mobile-open');
+        }
+
+        // Add some interactive hover effects
+        document.querySelectorAll('.tool-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // CTA button click tracking (you can integrate with your analytics)
+        document.querySelectorAll('.cta-button, .btn-primary').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Add your analytics tracking here
+                console.log('CTA clicked:', this.textContent);
+                // Redirect to your signup/trial page
+                // window.location.href = 'your-signup-url';
+            });
+        });
+    </script>
+</body>
+</html>
