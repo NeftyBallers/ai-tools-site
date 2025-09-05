@@ -249,73 +249,196 @@
         }
         
         .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            display: flex;
+            justify-content: center;
             margin-top: 60px;
         }
         
-        .tool-card {
+        .tool-card.featured-tool {
             background: linear-gradient(135deg, #334155 0%, #475569 100%);
-            padding: 2rem;
-            border-radius: 15px;
+            padding: 3rem;
+            border-radius: 20px;
             text-align: center;
             transition: all 0.3s ease;
-            border: 1px solid rgba(96, 165, 250, 0.1);
+            border: 2px solid rgba(96, 165, 250, 0.3);
+            max-width: 600px;
+            width: 100%;
         }
         
-        .tool-card:hover {
-            transform: translateY(-3px);
-            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
-            color: white;
-            border-color: rgba(255, 255, 255, 0.2);
+        .tool-card.featured-tool:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(96, 165, 250, 0.3);
+            border-color: rgba(96, 165, 250, 0.5);
         }
         
         .tool-avatar {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
+            margin: 0 auto 2rem;
+            font-size: 2.5rem;
             font-weight: bold;
             color: white;
             transition: all 0.3s ease;
         }
         
-        .tool-card:hover .tool-avatar {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-        }
-        
-        .tool-card h4 {
-            font-size: 1.2rem;
+        .tool-card.featured-tool h4 {
+            font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
             color: #f1f5f9;
         }
         
-        .tool-card .role {
-            font-size: 0.9rem;
+        .tool-card.featured-tool .role {
+            font-size: 1rem;
             opacity: 0.8;
-            margin-bottom: 1rem;
-            color: #94a3b8;
+            margin-bottom: 1.5rem;
+            color: #60a5fa;
+            font-weight: 600;
         }
         
-        .tool-card p {
-            font-size: 0.95rem;
+        .tool-card.featured-tool p {
+            font-size: 1.1rem;
             line-height: 1.6;
-            opacity: 0.9;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+        }
+        
+        .tool-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: rgba(96, 165, 250, 0.1);
+            border-radius: 8px;
+            font-size: 0.9rem;
             color: #cbd5e1;
         }
         
-        .tool-card:hover h4,
-        .tool-card:hover .role,
-        .tool-card:hover p {
+        .feature-icon-small {
+            font-size: 1.2rem;
+        }
+        
+        .tool-benefits {
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .tool-benefits h5 {
+            color: #60a5fa;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .tool-benefits ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tool-benefits li {
+            padding: 0.5rem 0;
+            color: #94a3b8;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .tool-benefits li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #60a5fa;
+            font-weight: bold;
+        }
+        
+        .tool-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .tool-demo-btn {
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
             color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(96, 165, 250, 0.3);
+        }
+        
+        .tool-demo-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(96, 165, 250, 0.4);
+        }
+        
+        .tool-learn-btn {
+            background: transparent;
+            color: #60a5fa;
+            padding: 12px 24px;
+            border: 2px solid #60a5fa;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .tool-learn-btn:hover {
+            background: #60a5fa;
+            color: white;
+        }
+        
+        .coming-soon-note {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-radius: 15px;
+            border: 1px solid rgba(96, 165, 250, 0.1);
+        }
+        
+        .coming-soon-note h3 {
+            color: #f1f5f9;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .coming-soon-note p {
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .waitlist-btn {
+            background: transparent;
+            color: #60a5fa;
+            padding: 10px 20px;
+            border: 1px solid #60a5fa;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .waitlist-btn:hover {
+            background: rgba(96, 165, 250, 0.1);
         }
         
         /* Stats Section */
@@ -494,8 +617,13 @@
                 grid-template-columns: 1fr;
             }
             
-            .tools-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            .tool-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .tool-actions {
+                flex-direction: column;
+                align-items: center;
             }
             
             .stats-grid {
@@ -613,46 +741,65 @@
     <section class="ai-tools" id="tools">
         <div class="container">
             <div class="section-header">
-                <h2>Meet Your AI Team</h2>
-                <p>Each AI assistant is specialized for specific business functions, ready to work 24/7 to help your business thrive.</p>
+                <h2>Meet Jasmin - Your AI Secretary</h2>
+                <p>Our flagship AI assistant is ready to transform your business operations with intelligent automation and cost-effective solutions.</p>
             </div>
             <div class="tools-grid">
-                <div class="tool-card">
-                    <div class="tool-avatar">A</div>
-                    <h4>Alex</h4>
-                    <div class="role">Personal Assistant</div>
-                    <p>Manages your calendar, schedules meetings, handles emails, and keeps you organized throughout your busy day.</p>
+                <div class="tool-card featured-tool">
+                    <div class="tool-avatar">J</div>
+                    <h4>Jasmin</h4>
+                    <div class="role">AI Secretary & Business Assistant</div>
+                    <p>Your 24/7 business automation expert that handles scheduling, task management, cost analysis, and strategic planning while saving you thousands annually.</p>
+                    
+                    <div class="tool-features">
+                        <div class="feature-item">
+                            <span class="feature-icon-small">📊</span>
+                            <span>Cost Comparison Calculator</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon-small">🔄</span>
+                            <span>Business Tools Integration</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon-small">⚡</span>
+                            <span>AI Automation Rules</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon-small">📝</span>
+                            <span>Task Generation & Prioritization</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon-small">📈</span>
+                            <span>Strategic Analysis & Insights</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon-small">🌟</span>
+                            <span>24/7 Availability</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tool-benefits">
+                        <h5>Key Benefits:</h5>
+                        <ul>
+                            <li>Save thousands annually vs human secretary</li>
+                            <li>Zero sick days or vacation time</li>
+                            <li>Instant scaling capabilities</li>
+                            <li>No training or onboarding costs</li>
+                            <li>Consistent, reliable performance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tool-actions">
+                        <a href="https://ai-secretary-demo.vercel.app/" target="_blank" class="tool-demo-btn">Try Live Demo</a>
+                        <a href="#" class="tool-learn-btn">Learn More</a>
+                    </div>
                 </div>
-                <div class="tool-card">
-                    <div class="tool-avatar">S</div>
-                    <h4>Sarah</h4>
-                    <div class="role">Content Creator</div>
-                    <p>Generates engaging blog posts, social media content, marketing copy, and creative materials for your brand.</p>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-avatar">M</div>
-                    <h4>Marcus</h4>
-                    <div class="role">Sales Manager</div>
-                    <p>Crafts compelling sales emails, creates pitch decks, analyzes sales data, and helps close more deals.</p>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-avatar">L</div>
-                    <h4>Luna</h4>
-                    <div class="role">Customer Support</div>
-                    <p>Responds to customer inquiries, creates help documentation, and ensures excellent customer experiences.</p>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-avatar">D</div>
-                    <h4>David</h4>
-                    <div class="role">Data Analyst</div>
-                    <p>Analyzes business metrics, creates reports, forecasts trends, and provides actionable insights for growth.</p>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-avatar">R</div>
-                    <h4>Ruby</h4>
-                    <div class="role">HR Specialist</div>
-                    <p>Streamlines recruitment, creates job descriptions, manages onboarding, and optimizes HR processes.</p>
-                </div>
+            </div>
+            
+            <div class="coming-soon-note">
+                <h3>More AI Assistants Coming Soon</h3>
+                <p>We're developing additional specialized AI tools for sales, marketing, customer support, and data analysis. Join our waitlist to be notified when they launch.</p>
+                <a href="#" class="waitlist-btn">Join Waitlist</a>
             </div>
         </div>
     </section>
